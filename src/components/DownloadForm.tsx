@@ -116,7 +116,7 @@ export default function DownloadForm({ platformName, placeholder = "Paste video 
             <h3 className="font-semibold text-gray-900 dark:text-white line-clamp-2">{result.title || 'Video Ready'}</h3>
             <div className="flex flex-wrap gap-3">
               <button 
-                onClick={() => startDownload(result.videoUrl, `${platformName}-video-${Date.now()}.mp4`)}
+                onClick={() => startDownload(result.videoUrl || "", `${platformName}-video-${Date.now()}.mp4`)}
                 className="flex-1 sm:flex-none inline-flex justify-center items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-xl transition-colors shadow-sm"
               >
                 <Download className="h-4 w-4" />
@@ -124,7 +124,7 @@ export default function DownloadForm({ platformName, placeholder = "Paste video 
               </button>
               {result.audioUrl && (
                 <button 
-                  onClick={() => startDownload(result.audioUrl, `${platformName}-audio-${Date.now()}.mp3`)}
+                  onClick={() => startDownload(result.audioUrl || "", `${platformName}-audio-${Date.now()}.mp3`)}
                   className="flex-1 sm:flex-none inline-flex justify-center items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-medium rounded-xl transition-colors"
                 >
                   Download Audio
